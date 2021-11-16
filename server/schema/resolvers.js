@@ -29,7 +29,7 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        saveBook: async (
+        addBook: async (
             parent,
             { userId, authors, description, bookId, image, link, title }
         ) => {
