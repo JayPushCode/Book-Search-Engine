@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
-import {
-    Jumbotron,
-    Container,
-    CardColumns,
-    Card,
-    Button,
-} from "react-bootstrap";
-import Auth from "../utils/auth";
+import { Jumbotron, Container, CardColumns, Card, Button } from "react-bootstrap";
+import { useQuery, useMutation } from "@apollo/client";
+
 import { removeBookId } from "../utils/localStorage";
 import { GET_USER } from "../utils/queries";
 import { REMOVE_BOOK } from "../utils/mutations";
-import { useQuery, useMutation } from "@apollo/client";
+
+import Auth from "../utils/auth";
 
 const SavedBooks = () => {
     const [userData, setUserData] = useState({});
@@ -35,7 +31,6 @@ const SavedBooks = () => {
         getUserData();
     });
 
-    // create function that accepts the book's mongo _id value as param and deletes the book from the database
     const handleDeleteBook = async (bookId) => {
         const token = Auth.loggedIn() ? Auth.getToken() : null;
         if (!token) {
@@ -56,8 +51,6 @@ const SavedBooks = () => {
             console.error(err);
         }
     };
-
-    // if data isn't here yet, say so
     if (!userDataLength) {
         return <h2>LOADING...</h2>;
     }

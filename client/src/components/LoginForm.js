@@ -1,8 +1,8 @@
-// see SignupForm.js for comments
 import React, { useState } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
-import Auth from "../utils/auth";
 import { useMutation } from "@apollo/client";
+import { Form, Button, Alert } from "react-bootstrap";
+
+import Auth from "../utils/auth";
 import { USER_LOGIN } from "../utils/mutations";
 
 const LoginForm = () => {
